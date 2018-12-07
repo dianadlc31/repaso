@@ -1,0 +1,62 @@
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ProductoPage } from '../producto/producto';
+import { CarritoPage } from '../carrito/carrito';
+
+/**
+ * Generated class for the TiendaPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+
+@IonicPage()
+@Component({
+  selector: 'page-tienda',
+  templateUrl: 'tienda.html',
+})
+export class TiendaPage {
+producto= ProductoPage;
+carrito=CarritoPage;
+compra=[];
+ropa=
+  [
+    
+    {color: "#9ed0e6" ,producto: "Pantalón paper bag", precio: "$ 449", vendedor: "H&M",valoracion: [1,2,3,4,5],imagen: "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FI00_0000_55fea303bc45ee897dce8cded4719b34e1e13ee1.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D", fecha: "16 Junio 2018", disp: "12",  resena:[{usuario:"Jimena" ,avatar:"https://vignette.wikia.nocookie.net/nintendo/images/0/08/Kirby_Portal_Icon.png/revision/latest?cb=20120502060006&path-prefix=en", fechar: "12 Agosto 2018", comentario:" Excelente material, me quedó sensacional y llegó más rápido de lo esperado."}]},
+    {color: "#9ed0e6" ,producto: "Blusa de Manga Larga", precio: "$ 229", vendedor: "H&M",valoracion: [1,2,3,4,5],imagen: "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FI00_0000_07eb7cbc6b70a174c8218180bced1aab8c2ea45c.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BXL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D", fecha: "16 Noviembre 2017",  disp: "21", resena:[{usuario:"Cristina Carrasco", avatar:"https://0.academia-photos.com/27337596/7770264/8709907/s200_cristina.carrasco.jpg", fechar: "3 Enero 2018",  comentario:" La blusa está muy bonita, pero la tela no me gustó tanto."}]},
+    {color: "#9ed0e6" ,producto: "Blusa Naranja de Manga Larga", precio: "$ 329", vendedor: "H&M",valoracion: [1,2,3,4,5],imagen: "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FI00_0000_d2c1519ca86478fce62eec15f198ee1b4d7f6110.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D", fecha:"8 de Septiembre 2018", disp: "6",  resena:[{usuario:"Yenisleidys Sotuyo" , avatar:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzG6RTuvYnTNmztEF44Chkhd-x0nOq7QZwiK57pn1qaE1rZ0wn", fechar: "4 Diciembre 2018", comentario:" Muy buen producto, con muy buena calidad. 100% Recomendable."}]},
+    {color: "#9ed0e6" ,producto: "Jersey de cuello alto de punto", precio: "$ 229", vendedor: "H&M",valoracion: [1,2,3,4,5],imagen: "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_4bc3cafb91e9aff972cdb7c91649f1f8eb4eb233.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D", fecha: "8 Diciembre 2018",disp:"34", resena:[ {usuario:"Stephanie Carreiro", avatar:"https://0.academia-photos.com/27337596/7770264/8709907/s200_cristina.carrasco.jpg", fechar: "8 Diciembre 2018", comentario:"  Adoro este suéter, ¡está súper lindo! El único pero es que me queda un poco chico." }]},
+    {color: "#9ed0e6" ,producto: "Vestido con escote de pico", precio: "$ 229", vendedor: "H&M",valoracion: [1,2,3,4,5],imagen: "https://lp.hm.com/hmprod?set=source%5B%2Fenvironment%2F2018%2FH00_0000_314c7411c737d58e34eead28a89a079fa88c1997.jpg%5D%2Cmedia_type%5BLOOKBOOK%5D%2Ctshirt_size%5BL%5D%2Cquality%5BH%5D%2Csr_x%5B-327%5D%2Csr_y%5B0%5D%2Csr_height%5B3496%5D%2Csr_width%5B2990%5D%2Chmver%5B1%5D&call=url%5Bfile%3A%2Fstudio2%2Fv1%2Fproduct.chain%5D", fecha: "1 Junio 2018",disp:"19", resena:[{usuario:"Alejandra Cruz Calderón", avatar:"https://vignette.wikia.nocookie.net/nintendo/images/0/08/Kirby_Portal_Icon.png/revision/latest?cb=20120502060006&path-prefix=en", fechar: "8 Diciembre 2018", comentario:"Sencilo pero bonito, tardo bastante en llegar ero es cómodo y se ve genial." }]}, 
+    {color: "#9ed0e6" ,producto: "Camisa de maga corta", precio: "$ 249", vendedor: "Pull&Bear",valoracion: [1,2,3,4,5],imagen: "https://static.pullandbear.net/2/photos/2018/I/0/1/p/9471/214/104/9471214104_2_5_1.jpg?t=1543335886762", fecha: "16 Marzo 2017",disp:"8", resena: [{usuario:"Diana González", avatar:"http://2.bp.blogspot.com/-gtp1maHoVMs/VNUUh2UMTmI/AAAAAAAAIsw/VVaB7-TznVM/s1600/74890-Girls%2Bwearing%2Bhat%2Bprofile%2Bpict.jpg", fechar: "17 Marzo 2017", comentario:"El precio estaba fantástico y el material es muy bueno, es igual al de la foto, excelente producto." }]}, 
+    {color: "#9ed0e6" ,producto: "Pantalones negros plisados", precio: "$ 599", vendedor: "Pull&Bear",valoracion: [1,2,3,4,5],imagen: "https://static.pullandbear.net/2/photos/2019/V/0/1/p/5679/494/800/5679494800_2_1_1.jpg?t=1542995103563", fecha: "1 Junio 2018",disp:"19", resena:[ {usuario:"Mimsey Tove", avatar:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLq3vhaKKnFn6IS5H52e_BZn2HxGc1Zi-WOeXrIq2gDzvbBbXH", fechar: "5 Noviembre 2018", comentario:"Me quedó como esperaba y adoro el color. Solamente que referiría que fuera mas largo." }]}, 
+    {color: "#9ed0e6" ,producto: "Sudadera Suave con Cuello Alto", precio: "$ 349", vendedor: "Pull&Bear",valoracion: [1,2,3,4,5],imagen: "https://static.pullandbear.net/2/photos/2019/V/0/1/p/5558/304/800/5558304800_2_5_1.jpg?t=1543934424128", fecha: "15 Agosto 2018",disp:"43", resena:[ {usuario:"Boonie King", avatar:"http://logo.pizza/img/dog-profile/dog-profile.png", fechar: "12 Diciembre 2018", comentario:"Es de buen material, buen color y realmente adoro el cuello. 100% Recomendable." }]}, 
+    {color: "#9ed0e6" ,producto: "Suéter Amarillo con Cuello Alto", precio: "$ 349", vendedor: "Pull&Bear",valoracion: [1,2,3,4,5],imagen: "https://static.pullandbear.net/2/photos/2018/I/0/1/p/5558/301/305/5558301305_2_5_1.jpg?t=1543848983344", fecha: "5 Abril 2018",disp:"20", resena:[ {usuario:"Karla Navarrete", avatar:"https://pm1.narvii.com/6562/980a2dfba5a3d6133964ed1cf9e37574aecf1976_hq.jpg", fechar: "2 Abril 2017", comentario:" La tela es gruesa y se le pega un poco la pelisa, pero estan cómodos, al estilo y se ajustan bien" }]}, 
+    {color: "#9ed0e6" ,producto: "Falda de camuflaje con 5 bolsillos", precio: "$ 499", vendedor: "Pull&Bear",valoracion: [1,2,3,4,5],imagen: "https://static.pullandbear.net/2/photos/2019/V/0/1/p/5398/313/505/5398313505_2_5_1.jpg?t=1542822259452", fecha: "4 Octubre 2018",disp:"2", resena: [{usuario:"Alejandra Cruz Calderón", avatar:"https://vignette.wikia.nocookie.net/nintendo/images/0/08/Kirby_Portal_Icon.png/revision/latest?cb=20120502060006&path-prefix=en", fechar: "8 Diciembre 2018", comentario:"Está fantástica. Definitivamente la usaré seguido" }]}, 
+    {color: "#9ed0e6" ,producto: "Pantalón de Mezclilla", precio: "$ 959", vendedor: "U.S. POLO ASSN",valoracion: [1,2,3,4,5],imagen: "https://images.yoox.com/42/42683816fu_14_f.jpg", fecha: "9 Febrero 2018",disp:"35", resena: [{usuario:"Ana Geish", avatar:"https://lh4.googleusercontent.com/-2l85b-nLVE4/AAAAAAAAAAI/AAAAAAAAAKY/-RFVPrFAqJk/photo.jpg", fechar: "27 Marzo 2018", comentario:"El color y figura de los pantalones son hermosos, ¡Me alegro de haber comprado este producto!" }]}, 
+    {color: "#9ed0e6" ,producto: "Sudadera", precio: "$ 1189", vendedor: "U.S. POLO ASSN",valoracion: [1,2,3,4,5],imagen: "https://cdnb.lystit.com/520/650/n/photos/yoox/82a09b4e/uspolo-assn-Beige-Sweatshirt.jpeg", fecha: "3 Enero 2018",disp:"3", resena: [{usuario:"Montserrat Díaz", avatar:"https://www.celesteprize.com/indi/_pics/8/8/2017-84855-411005_18800_36835_t.jpg?m=1487544326", fechar: "14 Febrero 2018", comentario:" Me encantó. La tela viene super padre. No se hace fea al lavar la máquina, la recomiendo ampliamente." }]}, 
+    {color: "#9ed0e6" ,producto: "Mono", precio: "$ 1299", vendedor: "U.S. POLO ASSN",valoracion: [1,2,3,4,5],imagen: "https://images.yoox.com/54/54160955cj_14_f.jpg", fecha: "30 Julio 2017",disp:"12", resena: [{usuario:"Judith Newhall", avatar:"https://wallpaper.sc/es/ipad/wp-content/uploads/2018/08/ipad-2048x2048-thumbnail_01126-256x256.jpg", fechar: "31 Julio 2018", comentario:"Simplemente adoro este mono, la tela y estilo están perfectos. El envío fue rápido y el producto lo vale. Lo recomiendo sin duda." }]}, 
+    {color: "#9ed0e6" ,producto: "Chaqueta Negra de Mujer", precio: "$ 699", vendedor: "U.S. POLO ASSN",valoracion: [1,2,3,4,5],imagen: "https://cdnd.lystit.com/520/650/n/photos/yoox/9b4afab1/uspolo-assn-Black-Jacket.jpeg", fecha: "12 Septiembre 2016",disp:"12", resena: [{usuario:"Luisa Rentería", avatar:"https://pm1.narvii.com/6673/59b8d1d27c03eb31317790b16e5891450d843245_128.jpg", fechar: "15 Octubre 2018", comentario:"¡La calidad y tela son bastante buenas! Aunque está muy justa de la talla así que hay que comprar una talla más grande." }]}, 
+    {color: "#9ed0e6" ,producto: "Camiseta Polo Azul", precio: "$ 259", vendedor: "U.S. POLO ASSN",valoracion: [1,2,3,4,5],imagen: "https://images.yoox.com/12/12099236kq_12_f.jpg", fecha: "21 Septiembre 2018",disp:"17", resena: [{usuario:"Amy H.", avatar:"https://2.bp.blogspot.com/-3EFZeLcqSBo/WzoGRZCb22I/AAAAAAAACuU/8bthVt_ao20HQSaixfM6sVcoqklpM5CKQCLcBGAs/s1600/AMLOPresidente.jpeg", fechar: "25 Diciembre 2018", comentario:"Adoro esta camisa. Tengo varia de ellas. Buena calidad, pero algo ajustadas. Hay que pedir una talla más y quedan perfectas." }]}, 
+    {color: "#9ed0e6" ,producto: "Top de Hombros descubiertos de crepé plisado", precio: "$ 370", vendedor: "Forever 21",valoracion: [1,2,3,4,5],imagen: "https://www.forever21.com/images/1_front_750/00348415-01.jpg", fecha: "22 Octubre 2018",disp:"5", resena: [{usuario:"Jessica Hernández", avatar:"https://cdn140.picsart.com/279493851000201.jpg?c256x256", fechar: "23 Julio 2018", comentario:"Lo compré en cuánto lo vi. Este top es simplemente hermoso y llegó rápido." }]}, 
+    {color: "#9ed0e6" ,producto: "Pantalones de tobillo con línea lateral", precio: "$ 512", vendedor: "Forever 21",valoracion: [1,2,3,4,5],imagen: "https://www.forever21.com/images/1_front_750/00304998-02.jpg", fecha: "24 Octubre 2018",disp:"21", resena: [{usuario:"Lili Paredes", avatar:"https://avatarfiles.alphacoders.com/912/91224.png", fechar: "18 Diciembre 2018", comentario:"Eran tan bonitos, realmente los adoraba. Pero me quedaron demasiado apretados y no puedo usarlos " }]}, 
+    {color: "#9ed0e6" ,producto: "Blusa Satín", precio: "$ 499", vendedor: "Forever 21",valoracion: [1,2,3,4,5],imagen: "https://http2.mlstatic.com/blusa-satin-forever-21-nueva-envio-gratis-D_NQ_NP_639722-MLM26498452703_122017-F.jpg", fecha: "4 Octubre 2018",disp:"12", resena: [{usuario:"Sofi Vargas", avatar:"https://www.bellatores.cl/wp-content/uploads/2018/01/Avatar-Mujer.png", fechar: "8 Diciembre 2018", comentario:"Está fantástica. Definitivamente la usaré seguido" }]}, 
+    {color: "#9ed0e6" ,producto: "Falda Skater negra", precio: "$ 299", vendedor: "Forever 21",valoracion: [1,2,3,4,5],imagen: "https://cdn.lookastic.com/falda-skater-negra/gauze-skater-skirt-original-293105.jpg", fecha: "9 Octubre 2018",disp:"9", resena: [{usuario:"Victoria Ríos", avatar:"https://www.creartuavatar.com/images/f14.svg", fechar: "16 Junio 2018", comentario:"Está fantástica. Definitivamente la usaré seguido" }]}, 
+    {color: "#9ed0e6" ,producto: "Crop top", precio: "$ 199", vendedor: "Forever 21",valoracion: [1,2,3,4,5],imagen: "http://www.forever21.com/images/default_330/00306764-01.jpg", fecha: "3 Octubre 2018",disp:"99", resena: [{usuario:"Fer Ramos", avatar:"https://banner2.kisspng.com/20180408/cqq/kisspng-computer-icons-user-profile-avatar-woman-business-woman-5ac9fb6bcbc593.0056997215231865398347.jpg", fechar: "6 Junio 2018", comentario:"Está fantástica. Definitivamente la usaré seguido" }]}, 
+  ]
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad TiendaPage');
+  }
+
+  clickProducto(r)
+  {
+    this.navCtrl.push(this.producto,{prenda:r,compra:this.compra});
+  }
+  clickCarrito()
+  {
+    this.navCtrl.push(this.carrito);
+  }
+}
