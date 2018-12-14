@@ -16,12 +16,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class CarritoPage {
   Compra='';
   compra=[];
-  resena='';
-prenda=[];
+
+carro;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.compra=this.navParams.get('r');
-    this.prenda=this.navParams.get('prenda');
-    this.resena=this.navParams.get('resena');
+
+    this.carro=this.navParams.get('carrito');
   }
 
   ionViewDidLoad() {

@@ -19,11 +19,12 @@ import { Storage } from '@ionic/storage'
 export class RegisroPage {
   mail="";
   pass="";
-  per=[{mail:"", pass:""}];
+  car=[];
+  usuarios=[];
   
   home=HomePage;
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,  public storage:Storage) {
-    this.per = this.navParams.get('per');
+    this.usuarios = this.navParams.get('usuarios');
 
   }
   clickAgregar()
@@ -31,14 +32,15 @@ export class RegisroPage {
     if(this.mail.length> 0)
     {
       
-      this.per.push(
+      this.usuarios.push(
       {
         mail: this.mail, 
-        pass: this.pass
+        pass: this.pass,
+        carrito: this.car
       })
 
       this.navCtrl.pop();
-      this.storage.set('per', JSON.stringify(this.per));
+      this.storage.set('usuarios', JSON.stringify(this.usuarios));
      
     }
     else if (this.mail.length<=0)

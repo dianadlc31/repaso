@@ -7,21 +7,21 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Carrito</ion-title>
+    <ion-title style="background-color: #F1FFC4 ;  text-align: center">Carrito</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-<ion-list>
-  <ion-item *ngFor= "let c of compra">
+<ion-content padding style= "background-color: black">
+<ion-list >
+  <ion-item *ngFor= "let c of carro" style= "background-color: #9ed0e6">
     <ion-col item-start>
-        <img [src]=r.imagen>
+        <img [src]=c.imagen>
       </ion-col>
-      <h2>{{r.producto}}</h2>
-      <p>{{r.precio}}</p>
-      <ion-icon name="star" *ngFor="let s of r.valoracion"></ion-icon>
+      <h2>{{c.producto}}</h2>
+      <p>{{c.precio}}</p>
+      <ion-icon name="star" *ngFor="let s of c.valoracion"></ion-icon>
   </ion-item>
 </ion-list>
 </ion-content>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CarritoPage } from '../carrito/carrito';
-
+import { Storage } from '@ionic/storage'
 /**
  * Generated class for the ProductoPage page.
  *
@@ -15,17 +15,16 @@ import { CarritoPage } from '../carrito/carrito';
   templateUrl: 'producto.html',
 })
 export class ProductoPage {
-resena='';
-prenda=[];
-compra=[];
-ropa='';
-carrito=CarritoPage;
+Carrito=CarritoPage;
+usuarios;
+carrito;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.prenda=this.navParams.get('prenda');
-    this.resena=this.navParams.get('resena');
-    this.compra=this.navParams.get('compra');
-    this.ropa=this.navParams.get('ropa');
+producto;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage:Storage) {
+    this.producto=this.navParams.get('producto');
+    this.carrito=this.navParams.get('carrito');
+    this.usuarios=this.navParams.get('usuarios');
   }
   
 
@@ -34,7 +33,9 @@ carrito=CarritoPage;
   }
   clickAgregar()
   {
-    this.navCtrl.push(this.carrito,{prenda:this.ropa,compra:this.compra});
+    this.carrito.push(this.producto);
+    this.storage.set('usuarios', JSON.stringify(this.usuarios));
+    this.navCtrl.pop();
   }
 
 }

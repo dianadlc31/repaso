@@ -15,27 +15,29 @@ export class HomePage {
   mail="";
   pass="";
   usuarios=[];
-  per=[{mail:"", pass:""}]
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, public storage:Storage) {
-    this.storage.keys()
-    .then (keys =>{
-      if (keys.some(key=> key == 'usuarios')){
-        this.storage.get('usuarios')
-        .then(usuarios => {
-          this.usuarios = JSON.parse(usuarios);
+      this.storage.keys()
+      .then (keys =>{
+        if (keys.some(key=> key == 'usuarios')){
+         this.storage.get('usuarios')
+         .then(usuarios => {
+            this.usuarios = JSON.parse(usuarios);
          
-        })
-      }
-    })
+         })
+
+        }
+      })
+    
+    //this.storage.clear();
   }
   clickIniciar()
     {
-      let index = this.usuarios.findIndex (usuarios => usuarios.mail == this.mail );
-      let index2 = this.usuarios.findIndex (usuarios => usuarios.pass ==this.pass);
+      let index = this.usuarios.findIndex (usuarios => usuarios.mail == this.mail && usuarios.pass== this.pass);
       
-      if(index == index2 )
+      
+      if(index >=0  )
       {
-        this.navCtrl.push(this.tienda,  {usuarios:this.per} ),
+        this.navCtrl.push(this.tienda,  {usuarios:this.usuarios, car:this.usuarios[index].carrito} );
 
         this.mail="";
         this.pass="";
@@ -51,7 +53,7 @@ export class HomePage {
     }
     clickregistro()
     {
-      this.navCtrl.push(this.registro, {usuarios:this.per})
+      this.navCtrl.push(this.registro, {usuarios:this.usuarios})
     }
 }
 //const alert = this.alertCtrl.create({
